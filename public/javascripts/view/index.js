@@ -115,7 +115,6 @@ function addAnswerBtnEvent() {
             $("#result").html(getPrintStr(result));
             clearNumberStag();
             clearOperatorStag();
-            clearOperationStag();
         });
     });
 }
