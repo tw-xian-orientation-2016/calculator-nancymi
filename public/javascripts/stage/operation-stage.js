@@ -40,10 +40,14 @@ function popOperationStag() {
         next: operationStag.next
     };
 
-    operationStag = null;
+    operationStag.pre = null;
+    operationStag.operator = null;
+    operationStag.next = null;
     return operation;
 }
 
 function clearOperationStag() {
-    operationStag = null;
+    operationStag.pre = null;
+    operationStag.operator = null;
+    operationStag.next = null;
 }

@@ -23,10 +23,6 @@ app.set('view engine', 'hbs');
 
 app.set('port', (process.env.PORT || 5000));
 
-app.get('/cool', function(request, response) {
-  response.send(cool());
-});
-
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
