@@ -5,17 +5,45 @@ var operationStag = {
 };
 
 function addToOperationStag(key, value) {
-    switch(key) {
-        case 'pre': operationStag.pre = value; break;
-        case 'operator': operationStag.operator = value; break;
-        case 'next': operationStag.next = value; break;
-        default: throw 'Illegal attribute.';
+    if (value === null) {
+        callback(operationStag);
+    } else {
+        switch(key) {
+            case 'number': {
+                if (operationStag.pre === null) {
+                    operationStag.pre = value;
+                } else if (operationStag.next === null) {
+                    operationStag.next = value;
+                } else {
+                    operationStag.pre = value;
+                }
+                break;
+            }
+            case 'operator': operationStag.operator = value; break;
+            default: throw 'Illegal attribute.';
+        }
     }
-    return operationStag;
+}
+
+function shouldPopOperationStag() {
+    if (operationStag.pre !== null && operationStag.operator !== null && operationStag.next !== null) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function popOperationStag() {
+    var operation = {
+        pre: operationStag.pre,
+        operator: operationStag.operator,
+        next: operationStag.next
+    };
+
+    operationStag = null;
+    return operation;
 }
 
 function clearOperationStag() {
-    operationStag.pre = null;
-    operationStag.operator = null;
-    operationStag.next = null;
+    operationStag = null;
 }

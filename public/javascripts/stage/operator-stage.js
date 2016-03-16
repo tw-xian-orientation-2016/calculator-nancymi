@@ -1,20 +1,20 @@
 var operatorStag = null;
 
-function setOperator(operator) {
+function setOperatorStag(operator) {
     operatorStag = operator;
     return operatorStag;
 }
 
-function getOperator() {
+function getOperatorStag() {
     return operatorStag;
 }
 
-function popOperator() {
+function popOperatorStag() {
     var operator = operatorStag;
     operatorStag = null;
     return operator;
 }
 
-function clearOperator() {
+function clearOperatorStag() {
     operatorStag = null;
 }

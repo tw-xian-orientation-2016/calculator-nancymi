@@ -1,17 +1,15 @@
 var numberStag = null;
-
-function addToNumberStag(number) {
-    if (numberStag === '0' || numberStag === null) {
+function addToNumberStag(number, callback) {
+    if (numberStag == null || (numberStag == '0' && number !== '.')) {
         numberStag = number;
-    } else {
-        numberStag.append(number);
+    } else if (numberStag.length < 17) {
+        numberStag = numberStag + number;
     }
-    return numberStag;
+    callback(numberStag);
 }
 
 function setNumberStag(number) {
     numberStag = number;
-    return numberStag;
 }
 
 function getNumberStag() {
@@ -21,7 +19,7 @@ function getNumberStag() {
 function popNumberStag() {
     var number = numberStag;
     numberStag = null;
-    return numberStag;
+    return number;
 }
 
 function clearNumberStag() {
