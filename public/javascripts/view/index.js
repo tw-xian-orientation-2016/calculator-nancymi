@@ -37,7 +37,7 @@ function addNumBtnEvent() {
 
 function addNegativeBtnEvent() {
     $("#negative").click(function() {
-        var num = getNumberStag();
+        var num = getNumberStag() || '0';
         getNegative(num, data => {
             $("#result").html(getPrintStr(data));
             setNumberStag(getPrintStr(data));
@@ -47,7 +47,7 @@ function addNegativeBtnEvent() {
 
 function addPercentageBtnEvent() {
     $("#percentage").click(function() {
-        var num =  getNumberStag();
+        var num =  getNumberStag() || '0';
         getPercentage(num, data => {
             $("#result").html(getPrintStr(data));
             setNumberStag(getPrintStr(data));
