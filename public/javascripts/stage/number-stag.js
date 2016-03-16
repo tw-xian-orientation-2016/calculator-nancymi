@@ -1,6 +1,8 @@
 var numberStag = null;
 function addToNumberStag(number, callback) {
-    if (numberStag == null || (numberStag == '0' && number !== '.')) {
+    if (number === '.') {
+        numberStag = (numberStag || '0') + number;
+    } else if (!numberStag) {
         numberStag = number;
     } else if (numberStag.length < 17) {
         numberStag = numberStag + number;
